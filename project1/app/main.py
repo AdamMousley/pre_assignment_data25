@@ -1,25 +1,26 @@
-from app.extract_csv import *
-import numpy as np
+from app.extract_attempt_two import *
+from pprint import pprint
 
-# Calls the function that turns the csv to a dataframe
-imdb_df = csv_to_dataframe("imdb_data.csv")
-# print(imdb_df)
+# Calling the function to produce an output of the csv, in the form of list of lists
+csv_rows = read_csv("imdb_data.csv")
 
-# The column headers
-column_headers = col_headers(imdb_df)
-#print(column_headers)
+# Calling the function that returns two lists, one with and one without empty values.
+rows_w_empty_data = select_row_elements("imdb_data.csv")[0]
+rows_wo_empty_data = select_row_elements("imdb_data.csv")[1]
 
-# # Check if the values are ture or false
-x = check_if_empty(imdb_df)
-# print(x)
+# Calling the function that removes duplicates in the data without empty values
+wo_empty_remove_dups = remove_duplicates(rows_wo_empty_data)
 
-# Calls the function to remove any duplicates, based on title
-imdb_df_wo_dup = drop_duplicates(imdb_df)
-# print(imdb_df_wo_dup)
+# Calling the function that removes duplicates in the data with empty values
+w_empty_remove_dups = remove_duplicates(rows_w_empty_data)
 
-#empty_values_col(imdb_df_wo_dup)
 
-# print(np.where(pd.isnull(imdb_df_wo_dup)))
 
-print(imdb_df_wo_dup.isnull().sum())
+
+# print(len(rows_w_empty_data))
+# print(len(rows_wo_empty_data))
+#
+# print(len(remove_duplicates(rows_w_empty_data)))
+# print(len(remove_duplicates(rows_wo_empty_data)))
+
 
