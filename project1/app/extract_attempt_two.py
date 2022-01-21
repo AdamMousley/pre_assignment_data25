@@ -50,4 +50,3 @@ def remove_ascii(filename):
     return contains_ascii, no_ascii
 
 
-
