@@ -24,6 +24,7 @@ class ImdbCsvCleaner:
             clean_data_writer = csv.writer(cleaned_data_file)
             clean_data_writer.writerow(completed_data_line)
 
+# Changing one thing ever so slightly
 
     def imdb_line_clean_check(self, imdb_data_line):
         item_empty_flag = None
